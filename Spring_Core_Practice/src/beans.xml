@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<bean id="phone" class="com.sp.Phone">
+<property name="phno" value="1234567890"></property>
+</bean>
+
+<bean id="p1" class="com.sp.Person">
+<property name="name" value="Mashuk"></property>
+<property name="phone" ref="phone"></property>
+</bean>
+
+<bean id="subject" class="com.sp.Subject">
+<constructor-arg name="subname" value="Java"></constructor-arg>
+</bean>
+
+<bean id="st1" class="com.sp.Staff">
+<constructor-arg name="stname" value="Mashuk"></constructor-arg>
+<constructor-arg name="subject" ref="subject"></constructor-arg>
+</bean>
+
+<bean id="s1" class="com.sp1.Student">
+   <property name="sid" value="1"></property>
+   <property name="fname" value="Mashuk"></property>
+   <property name="lname" value="Patel"></property>
+   <property name="email" value="mashuk@gmail.com"></property>
+   <property name="mobile" value="1234567890"></property>
+   </bean>
+   
+   <bean id="cc1" class="com.sp1.Customer">
+   	<property name="lists">
+   		<list>
+   			<value>1</value>
+   			<bean id="cp2" class="com.sp1.Student">
+   			<property name="sid" value="2"></property>
+   			<property name="fname" value="Rocky"></property>
+   			<property name="lname" value="Prajapati"></property>
+   			<property name="email" value="rocky@gmail.com"></property>
+            <property name="mobile" value="98765432210"></property>
+   			</bean>
+   			<ref bean="s1"/>
+   			<ref bean="s1"/>
+   		</list>
+   	</property>
+    <property name="sets">
+    	<set>
+    		<value>1</value>
+    		<bean id="cp3" class="com.sp1.Student">
+    			<property name="sid" value="3"></property>
+    			<property name="fname" value="Ricky"></property>
+    			<property name="lname" value="Roy"></property>
+    			<property name="email" value="ricky@gmail.com"></property>
+                <property name="mobile" value="98765432210"></property>
+    		</bean>
+    		<ref bean="s1"/>
+    		<ref bean="s1"/>
+    	</set>
+    </property>
+   </bean>
+   
+
+</beans>
